@@ -1,3 +1,5 @@
+# prevalence
+
 ## Goals
 
 ### Prevalence
@@ -10,11 +12,11 @@ No. The pipeline uses estimated prevalence. That way, you can use the dataset to
 
 > Does the pipeline pull data from Wiktionary?
 
-Yes. `foo` processes Wiktionary data and writes the output to `wiktionary.tsv`.
+Yes. `prevalence` processes Wiktionary data and writes the output to `wiktionary.tsv`.
 
 > Does the pipeline pull data from Wikipedia?
 
-Yes. `foo` processes Wikipedia data and writes the output to `wikipedia.tsv`.
+Yes. `prevalence` processes Wikipedia data and writes the output to `wikipedia.tsv`.
 
 ### Efficiency
 
