@@ -6,7 +6,7 @@
 
 > Does the pipeline use corpus frequency?
 
-No. The pipeline uses estimated prevalence. That way, you can use the dataset to be confident you know the phrases most people know.
+No. I choose prevalence. That way, you can use the dataset to be confident you know the phrases most people know.
 
 ### Exhaustiveness
 
