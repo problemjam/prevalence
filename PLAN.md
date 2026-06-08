@@ -13,8 +13,8 @@ The generator downloads `pun`'s normalized prevalence dataset from GitHub, so it
 - Columns:
   - `entry`: exact Wiktextract `word` field value, which may be a single word or a phrase
   - `prevalence`: normalized score from `pun-data`
-  - `space`: `true` iff `entry` contains an ASCII space
   - `lemma`: `true` iff Wiktextract entry-level `categories` contains `English lemmas`
+  - `space`: `true` iff `entry` contains an ASCII space
 
 ## Implementation
 
@@ -38,7 +38,7 @@ The generator downloads `pun`'s normalized prevalence dataset from GitHub, so it
   - no duplicate `entry` values
   - every row has a normalized score
   - missing Wiktextract matches are reported with count and sample keys
-  - headers are exactly `entry`, `prevalence`, `space`, `lemma`
+  - headers are exactly `entry`, `prevalence`, `lemma`, `space`
 
 ## Assumptions
 
