@@ -23,6 +23,7 @@
 
 (deftest aggregates-lemma-and-space-flags
   (let [normalized {"lemma word" 0.7
+                    "sense lemma" 0.6
                     "plain" 0.2
                     "fr-only" 0.9}
         raw-file (write-gzip-lines!
@@ -30,6 +31,9 @@
                   [(json/write-str {:word "lemma word"
                                     :lang_code "en"
                                     :categories ["English lemmas"]})
+                   (json/write-str {:word "sense lemma"
+                                    :lang_code "en"
+                                    :senses [{:categories ["English lemmas"]}]})
                    (json/write-str {:word "plain"
                                     :lang "English"
                                     :categories []})
@@ -40,8 +44,9 @@
                                     :lang_code "en"
                                     :categories ["English lemmas"]})])
         rows (sut/aggregate-wiktextract raw-file normalized)]
-    (is (= #{"lemma word" "plain"} (set (keys rows))))
+    (is (= #{"lemma word" "sense lemma" "plain"} (set (keys rows))))
     (is (true? (:lemma (get rows "lemma word"))))
+    (is (true? (:lemma (get rows "sense lemma"))))
     (is (false? (:lemma (get rows "plain"))))
     (is (true? (:space (get rows "lemma word"))))
     (is (false? (:space (get rows "plain"))))))
