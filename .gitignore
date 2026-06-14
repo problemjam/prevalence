@@ -1,0 +1,5 @@
+/wiktionary.tsv
+/clj/data/
+/clj/.cpcache/
+/clj/target/
+/.nrepl-port
