@@ -13,7 +13,7 @@ The generator downloads `pun`'s normalized prevalence dataset from GitHub, so it
 - Columns:
   - `entry`: exact Wiktextract `word` field value, which may be a single word or a phrase
   - `prevalence`: normalized score from `pun-data`
-  - `lemma`: `true` iff Wiktextract entry-level `categories` contains `English lemmas`
+  - `lemma`: `true` iff Wiktextract entry-level or sense-level `categories` contains `English lemmas`
   - `space`: `true` iff `entry` contains an ASCII space
 
 ## Implementation
@@ -44,5 +44,5 @@ The generator downloads `pun`'s normalized prevalence dataset from GitHub, so it
 
 - `prevalence` means the already-normalized recognizability score from `pun-data`.
 - `lemma` uses Wiktionary/Wiktextract entry-level category metadata only; no NLP lemmatizer.
-- Sense-level categories exist in Wiktextract, but they are not used for `lemma`.
+- Some Wiktextract records, such as `phone number`, expose `English lemmas` only in sense-level categories, so both entry-level and sense-level categories are checked for `lemma`.
 - Wiktextract format reference: `https://github.com/tatuylonen/wiktextract`

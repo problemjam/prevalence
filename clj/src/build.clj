@@ -98,8 +98,12 @@
 (defn lemma-record?
   [record]
   (boolean
-   (some #(= "English lemmas" (category-name %))
-         (:categories record))))
+   (or (some #(= "English lemmas" (category-name %))
+             (:categories record))
+       (some (fn [sense]
+               (some #(= "English lemmas" (category-name %))
+                     (:categories sense)))
+             (:senses record)))))
 
 (defn row-for
   [entry prevalence lemma?]
